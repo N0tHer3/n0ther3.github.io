@@ -353,7 +353,7 @@ const HOME = ['home', TERM.user];
 const buildFs = () => D({
   home: D({
     [TERM.user]: D({
-      'README.md': F(`# ${site.name}\n\n${site.bio}\n\n## 快速上手\n\n  help       查看全部命令\n  posts      列出文章\n  neofetch   看看这台机器\n\nPowered by curiosity.`),
+      'README.md': F(`# ${site.name}\n\n${site.bio}\n\n## 快速上手\n\n  help       查看全部命令\n  articles   列出文章\n  neofetch   看看这台机器\n\nPowered by curiosity.`),
       'interests.txt': F((site.interests || []).join('\n')),
       'about.txt': F(site.about.join('\n\n')),
       'contact.txt': F(site.links.map(l => `${l.label}: ${l.url}`).join('\n')),
@@ -369,7 +369,7 @@ GitHub: https://github.com/N0tHer3
 添加好友时备注「来自终端 flag」即可通过验证。`),
       'secrets.txt': F('flag{try_reading_data_js_instead}\n\n好吧，这个文件里其实什么都没有。\n有趣的是，你居然真的来 cat 了。 Stay curious. :)'),
       '.bashrc': F(`# ~/.bashrc\nexport PS1="\\u@\\h:\\w\\$ "\nalias ll="ls -la"\nalias la="ls -a"\n\n# Powered by curiosity\n`),
-      posts: D(Object.fromEntries(site.articles.map((a, i) => [
+      articles: D(Object.fromEntries(site.articles.map((a, i) => [
         `${String(i + 1).padStart(2, '0')}-${slug(a.title)}.md`,
         F(`# ${a.title}\n\n> ${a.date} · ${a.category || ''} · ${(a.tags || []).join(' / ')}\n\n${a.content || `${a.summary}\n\n(完整排版请运行: open ${i})`}`)
       ]))),
@@ -589,7 +589,7 @@ const commands = {
       pwd: 'pwd — 我现在在哪个目录\n用法: pwd',
       whoami: 'whoami — 我是谁\n用法: whoami',
       hostname: 'hostname — 这台机器叫什么\n用法: hostname',
-      posts: 'posts — 列出博客全部文章\n用法: posts',
+      articles: 'articles — 列出博客全部文章\n用法: articles',
       neofetch: 'neofetch — 看看这台机器的配置卡片\n用法: neofetch',
       sudo: 'sudo — 想借 root 权限？\n这台机器上你永远不在 sudoers 名单里。'
     };
@@ -645,7 +645,7 @@ const commands = {
   /* ---- 博客扩展 ---- */
   open: (args) => {
     const a = site.articles[Number(args[0])];
-    if (args[0] === undefined || !/^\d+$/.test(args[0]) || !a) return err(`open: 用法 open <n>，序号见 ls posts/（范围 0-${site.articles.length - 1}）`);
+    if (args[0] === undefined || !/^\d+$/.test(args[0]) || !a) return err(`open: 用法 open <n>，序号见 ls articles/（范围 0-${site.articles.length - 1}）`);
     if (a.content) {
       setTimeout(() => openReader(a), 120);
       return ok([`<span class="t-ok">opening: ${esc(a.title)} ...</span>`], '');
@@ -656,7 +656,7 @@ const commands = {
     }
     return err('open: 该文章暂无正文');
   },
-  posts: () => {
+  articles: () => {
     const lines = site.articles.map((a, i) => `  [${i}] <span class="t-dir">${a.date}</span>  ${esc(a.title)}`);
     return ok(lines, '');
   },
@@ -697,9 +697,9 @@ const commands = {
     return err(`当前主题: ${getTheme() === 'light' ? '浅色 light' : '暗色 dark'}（用法: theme light|dark）`);
   },
   goto: (args) => {
-    const map = { home: '/', index: '/', posts: '/articles', blog: '/articles', projects: '/projects', about: '/about', me: '/about', guestbook: '/guestbook', message: '/guestbook' };
+    const map = { home: '/', index: '/', articles: '/articles', blog: '/articles', projects: '/projects', about: '/about', me: '/about', guestbook: '/guestbook', message: '/guestbook' };
     const dest = map[(args[0] || '').toLowerCase()];
-    if (!dest) return err('goto: 可以去这些页面 home | posts | projects | about | guestbook');
+    if (!dest) return err('goto: 可以去这些页面 home | articles | projects | about | guestbook');
     location.hash = '#' + dest;
     return ok([`<span class="t-ok">正在跳转 → ${esc(dest)}</span>`], '');
   },
@@ -721,7 +721,7 @@ const commands = {
         ['history', '我敲过哪些命令']
       ]],
       ['博客', [
-        ['posts', '列出全部文章'],
+        ['articles', '列出全部文章'],
         ['projects', '我的开源项目'],
         ['contact', '找到我的方式'],
         ['neofetch', '这台机器的名片']
@@ -1118,10 +1118,10 @@ const renderPostList = () => {
   bindArticleRows(listEl);
 };
 const pagePosts = () => `
-  <section class="page-section posts-page" aria-labelledby="posts-title">
+  <section class="page-section articles-page" aria-labelledby="articles-title">
     <div class="section-heading">
       <span class="section-number">WRITING / 全部文章</span>
-      <h2 id="posts-title">文章</h2>
+      <h2 id="articles-title">文章</h2>
       ${allTags.length ? `
       <div class="post-tags-side" aria-label="按标签筛选">
         <span class="tags-side-title">TAGS</span>
