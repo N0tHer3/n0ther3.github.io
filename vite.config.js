@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.dirname(fileURLToPath(import.meta.url));
 
 // 部署后改成你的站点地址（rss.xml / sitemap.xml / robots.txt 里的链接都用它）
-const SITE_URL = 'https://n0ther3.github.io/N0tHer3-blog/';
+const SITE_URL = 'https://n0ther3.github.io/';
 
 // 页面路由（与 src/main.js 的 routes 保持一致）
 const PAGES = ['', '#/articles', '#/projects', '#/about', '#/guestbook'];

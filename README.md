@@ -15,8 +15,8 @@
 ## 快速开始
 
 ```bash
-git clone https://github.com/N0tHer3/N0tHer3-blog
-cd N0tHer3-blog
+git clone https://github.com/N0tHer3/n0ther3.github.io
+cd n0ther3.github.io
 npm install
 npm run dev
 ```
