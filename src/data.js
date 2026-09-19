@@ -92,12 +92,12 @@ export const site = {
 
   projects: [
     {
-      name: 'hacker-blog',
+      name: 'N0tHer3-blog',
       year: '2026',
       tags: ['JavaScript', 'Vite'],
       description: '你正在看的这个博客：Vite 构建的单页应用，终端风格 UI，文章即 Markdown 文件。',
       detail: 'Hash 路由、构建期 RSS/Sitemap、内嵌仿真终端——把静态博客写出终端的味道。',
-      url: 'https://github.com/N0tHer3/hacker-blog',
+      url: 'https://github.com/N0tHer3/N0tHer3-blog',
       icon: 'terminal'
     }
   ],

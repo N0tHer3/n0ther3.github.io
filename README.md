@@ -1,4 +1,4 @@
-# hacker-blog
+# N0tHer3-blog
 
 一个面向网络安全从业者的终端风纯前端博客模板。Vite + 原生 JavaScript，零框架、零后端，构建产物为纯静态文件，GitHub Pages / Cloudflare Pages / 任意静态服务器均可直接托管。
 
@@ -15,8 +15,8 @@
 ## 快速开始
 
 ```bash
-git clone https://github.com/N0tHer3/hacker-blog
-cd hacker-blog
+git clone https://github.com/N0tHer3/N0tHer3-blog
+cd N0tHer3-blog
 npm install
 npm run dev
 ```
