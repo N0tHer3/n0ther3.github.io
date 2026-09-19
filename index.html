@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d100f" />
+    <meta name="description" content="一个面向网络安全从业者的个人博客：攻防实践、漏洞研究、CTF 与安全开发。" />
+    <meta name="keywords" content="网络安全,渗透测试,漏洞分析,CTF,安全开发,红队" />
+    <link rel="alternate" type="application/rss+xml" title="RSS 订阅" href="./rss.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="汤圆_N0tHer3 · 网络安全博客" />
+    <meta property="og:description" content="一个面向网络安全从业者的个人博客：攻防实践、漏洞研究、CTF 与安全开发。" />
+    <title>汤圆_N0tHer3 · 网络安全博客</title>
+    <script>
+      // 提前应用主题，避免刷新时闪烁
+      try { document.documentElement.dataset.theme = localStorage.getItem('theme') === 'light' ? 'light' : 'dark'; } catch (e) {}
+    </script>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230d100f'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='30' fill='%23c9e894' text-anchor='middle'%3E%26gt;_%3C/text%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Libre+Caslon+Display&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
