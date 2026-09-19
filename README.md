@@ -70,4 +70,5 @@ npm run dev
 
 ## License
 
-开源前建议添加 MIT License（仓库根目录新建 `LICENSE` 文件即可）。
+- **代码**：基于 [MIT License](LICENSE) 开源，欢迎学习、自用与二次开发（保留版权声明即可）。
+- **文章内容**：[`src/posts/`](src/posts/) 下的全部文章与配图版权归 [N0tHer3](https://github.com/N0tHer3) 所有，未经本人授权，**禁止转载、搬运、摘编至其他平台或用于任何商业用途**。如需转载，请通过博客留言板或 GitHub Issues 联系我获得书面授权。
