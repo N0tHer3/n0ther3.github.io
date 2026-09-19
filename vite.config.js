@@ -15,9 +15,9 @@ const escXml = (s) => String(s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;')
   .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-// 极简 front-matter 解析（字段与 src/data.js 一致），构建期读 src/posts 生成订阅源
+// 极简 front-matter 解析（字段与 src/data.js 一致），构建期读 src/articles 生成订阅源
 const parsePosts = () => {
-  const dir = path.join(root, 'src/posts');
+  const dir = path.join(root, 'src/articles');
   return fs.readdirSync(dir)
     .filter(f => f.endsWith('.md') && !f.startsWith('_'))
     .map(f => {

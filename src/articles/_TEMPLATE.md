@@ -5,7 +5,7 @@
 注意：
 1. 文件名不要以 _ 开头（_ 开头的文件会被网站忽略，不会发布）
 2. front-matter（最上面的 --- 之间）是文章信息，会被网站解析
-3. 图片放到 src/posts/images/ 文件夹，用相对路径 ./images/xxx.png 引用
+3. 图片放到 src/articles/images/ 文件夹，用相对路径 ./images/xxx.png 引用
 4. 保存后开发服务器会自动刷新，构建时自动打包
 
 front-matter 字段说明：
@@ -72,7 +72,7 @@ Content-Type: application/json
 
 ## 图片
 
-把图片放进 `src/posts/images/` 文件夹，然后这样引用（支持 png/jpg/gif/webp/svg），
+把图片放进 `src/articles/images/` 文件夹，然后这样引用（支持 png/jpg/gif/webp/svg），
 alt 文字会显示为图片下方的说明文字：
 
 ![配图说明文字](./images/example.png)

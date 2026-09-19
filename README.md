@@ -6,7 +6,7 @@
 
 - **暗色终端风 UI**：字符雨背景、macOS 风终端窗口、滚动进度条、明暗主题切换
 - **可交互虚拟终端**：`ls` / `cat` / `grep` / 管道 / 命令历史 / Tab 补全，藏了一个小彩蛋
-- **文章系统**：往 `src/posts/` 丢 `.md` 文件即自动发布，支持分类筛选、标签筛选、全文搜索
+- **文章系统**：往 `src/articles/` 丢 `.md` 文件即自动发布，支持分类筛选、标签筛选、全文搜索
 - **阅读体验**：Markdown 渲染（代码块 / 表格 / 引用 / 图片）、代码一键复制、图片点击放大、上一篇 / 下一篇
 - **留言板**：表单经 FormSubmit 免后端转发到你的邮箱，带蜜罐防垃圾
 - **关于页**：成长时间线、研究方向、常用装备
@@ -26,7 +26,7 @@ npm run dev
 ## 换成你的博客
 
 1. **站点信息**：编辑 [`src/data.js`](src/data.js) —— 名称、头像、简介、社交链接、数据统计、项目、时间线都在这里，留空的模块自动隐藏。
-2. **写文章**：把 `.md` 文件放进 `src/posts/`，写作模板见 [`src/posts/_TEMPLATE.md`](src/posts/_TEMPLATE.md)。front-matter 支持：
+2. **写文章**：把 `.md` 文件放进 `src/articles/`，写作模板见 [`src/articles/_TEMPLATE.md`](src/articles/_TEMPLATE.md)。front-matter 支持：
 
    ```yaml
    ---
@@ -38,7 +38,7 @@ npm run dev
    ---
    ```
 
-   文章配图放进 `src/posts/images/`，正文里用 `![说明](./images/xxx.png)` 引用。填 `link: https://...` 则点击跳转外部。
+   文章配图放进 `src/articles/images/`，正文里用 `![说明](./images/xxx.png)` 引用。填 `link: https://...` 则点击跳转外部。
 
 3. **留言板邮箱**：在 [`src/main.js`](src/main.js) 里把 `formsubmit.co/ajax/你的邮箱` 换成自己的邮箱，首次提交后去邮箱点击 FormSubmit 的激活邮件。
 
@@ -61,7 +61,7 @@ npm run dev
     ├── main.js                 # 渲染、路由、终端、阅读弹窗
     ├── styles.css              # 全部样式（明暗主题 CSS 变量在顶部）
     ├── data.js                 # 站点配置，改这里换内容
-    └── posts/                  # Markdown 文章 + 图片
+    └── articles/               # Markdown 文章 + 图片
 ```
 
 ## 自定义主题色
@@ -71,4 +71,4 @@ npm run dev
 ## License
 
 - **代码**：基于 [MIT License](LICENSE) 开源，欢迎学习、自用与二次开发（保留版权声明即可）。
-- **文章内容**：[`src/posts/`](src/posts/) 下的全部文章与配图版权归 [N0tHer3](https://github.com/N0tHer3) 所有，未经本人授权，**禁止转载、搬运、摘编至其他平台或用于任何商业用途**。如需转载，请通过博客留言板或 GitHub Issues 联系我获得书面授权。
+- **文章内容**：[`src/articles/`](src/articles/) 下的全部文章与配图版权归 [N0tHer3](https://github.com/N0tHer3) 所有，未经本人授权，**禁止转载、搬运、摘编至其他平台或用于任何商业用途**。如需转载，请通过博客留言板或 GitHub Issues 联系我获得书面授权。

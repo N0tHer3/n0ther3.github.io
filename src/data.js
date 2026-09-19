@@ -1,8 +1,8 @@
 // ============================================================
 // 站点配置 —— 修改这里就能把示例博客换成你自己的内容。
 // 留空的项目会自动隐藏。
-// 文章不用写在这个文件里：往 src/posts/ 文件夹丢 .md 文件即可，
-// 写作模板见 src/posts/_TEMPLATE.md。
+// 文章不用写在这个文件里：往 src/articles/ 文件夹丢 .md 文件即可，
+// 写作模板见 src/articles/_TEMPLATE.md。
 // ============================================================
 export const site = {
   name: '汤圆_N0tHer3',
@@ -115,17 +115,17 @@ export const site = {
   footerNote: 'Build · Learn · Share.',
   copyrightYear: '2026',
 
-  // 文章列表由下方从 src/posts/*.md 自动加载，无需手动维护
+  // 文章列表由下方从 src/articles/*.md 自动加载，无需手动维护
   articles: []
 };
 
 /* ============================================================
-   文章加载：src/posts/*.md
+   文章加载：src/articles/*.md
    - front-matter 支持：title / date / category / tags / summary / link
    - link 有值时为外链文章（点击跳转），否则正文在站内阅读
    - 下划线 _ 开头的文件（如写作模板）会被忽略
    ============================================================ */
-const mdFiles = import.meta.glob('./posts/*.md', { query: '?raw', import: 'default', eager: true });
+const mdFiles = import.meta.glob('./articles/*.md', { query: '?raw', import: 'default', eager: true });
 
 const parseMeta = (raw) => {
   const text = String(raw).replace(/^\uFEFF/, '').replace(/\r\n/g, '\n');
@@ -172,11 +172,11 @@ const articleList = Object.entries(mdFiles)
 site.articles = articleList;
 
 /* ============================================================
-   文章图片解析：把图片放进 src/posts/images/ 文件夹，
+   文章图片解析：把图片放进 src/articles/images/ 文件夹，
    在 md 里写 ![](./images/文件名.png) 即可（只按文件名匹配）。
    外链图片（http/https 开头）直接使用。
    ============================================================ */
-const imageFiles = import.meta.glob('./posts/images/**/*.{png,jpg,jpeg,gif,webp,svg,avif}', { import: 'default', eager: true });
+const imageFiles = import.meta.glob('./articles/images/**/*.{png,jpg,jpeg,gif,webp,svg,avif}', { import: 'default', eager: true });
 const imageMap = Object.fromEntries(
   Object.entries(imageFiles).map(([path, url]) => [path.split('/').pop().toLowerCase(), url])
 );
