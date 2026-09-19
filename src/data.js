@@ -25,7 +25,7 @@ export const site = {
   // 数据统计条（Hero 下方）—— 建议只放真实数据
   stats: [
     { value: '1', label: '原创文章' },
-    { value: '2', label: '开源项目' },
+    { value: '1', label: '开源项目' },
     { value: '4', label: '研究方向' },
     { value: '2024', label: '入坑至今' }
   ],
@@ -49,8 +49,8 @@ export const site = {
     {
       year: '2026',
       tag: '现在',
-      title: 'AI 开发远程兼职',
-      desc: '8 月开始一份 AI 应用开发方向的兼职，成了名副其实的「AI 小子」。准备求职时发现，岗位普遍看重项目与实战经验，于是用 AI Coding 亲手做出了这个博客——日后找工作直接发给 HR，技术栈和实战成果一眼就能看清。这一路体验下来，越来越佩服 AI 的落地价值：它既是我手里的新工具，也是我新的研究方向。'
+      title: 'AI Coding 开发',
+      desc: '8 月找了一份 AI 应用开发的兼职工作，正式变成「AI 小子」。求职时发现很多岗位都看重项目与实战经验，于是用 AI Coding 开发了这个博客——找工作时可以直接发给 HR，让技术栈和实战产出一目了然。不得不感慨 AI 强大的落地价值，它正在成为我手里新的工具，也是新的研究方向。'
     },
     {
       year: '2026',
@@ -92,22 +92,13 @@ export const site = {
 
   projects: [
     {
-      name: 'nexus-scan',
+      name: 'hacker-blog',
       year: '2026',
-      tags: ['Python', '分布式'],
-      description: '轻量级资产测绘与漏洞扫描框架，支持分布式调度与插件化 PoC 管理。',
-      detail: '从子域发现到漏洞验证的一站式工作流，让重复劳动自动化。',
-      url: 'https://github.com/',
+      tags: ['JavaScript', 'Vite'],
+      description: '你正在看的这个博客：Vite 构建的单页应用，终端风格 UI，文章即 Markdown 文件。',
+      detail: 'Hash 路由、构建期 RSS/Sitemap、内嵌仿真终端——把静态博客写出终端的味道。',
+      url: 'https://github.com/N0tHer3/hacker-blog',
       icon: 'terminal'
-    },
-    {
-      name: 'vuln-canvas',
-      year: '2025',
-      tags: ['TypeScript', '可视化'],
-      description: '攻击路径可视化工具：把主机、凭据与漏洞关系画成一张图。',
-      detail: '让复杂内网的横向移动路径一目了然，复盘汇报不再靠截图拼图。',
-      url: 'https://github.com/',
-      icon: 'layers'
     }
   ],
 
