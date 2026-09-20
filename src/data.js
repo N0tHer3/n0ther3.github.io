@@ -163,17 +163,23 @@ const articleList = Object.entries(mdFiles)
 site.articles = articleList;
 
 /* ============================================================
-   文章图片解析：把图片放进 src/articles/images/ 文件夹，
-   在 md 里写 ![](./images/文件名.png) 即可（只按文件名匹配）。
-   外链图片（http/https 开头）直接使用。
+   文章资源解析：图片放 src/articles/images/，附件（压缩包）放
+   src/articles/files/，md 里写 ./images/xxx.png 或 ./files/xxx.zip
+   （只按文件名匹配）。外链（http/https 开头）直接使用。
    ============================================================ */
 const imageFiles = import.meta.glob('./articles/images/**/*.{png,jpg,jpeg,gif,webp,svg,avif}', { import: 'default', eager: true });
 const imageMap = Object.fromEntries(
   Object.entries(imageFiles).map(([path, url]) => [path.split('/').pop().toLowerCase(), url])
 );
 
+const attachFiles = import.meta.glob('./articles/files/**/*', { query: '?url', import: 'default', eager: true });
+const fileMap = Object.fromEntries(
+  Object.entries(attachFiles).map(([path, url]) => [path.split('/').pop().toLowerCase(), url])
+);
+
 export const asset = (src) => {
   const s = String(src || '').trim();
   if (!s || /^(https?:)?\/\//i.test(s) || s.startsWith('data:') || s.startsWith('/')) return s;
-  return imageMap[s.split('/').pop().toLowerCase()] || s;
+  const name = s.split('/').pop().toLowerCase();
+  return imageMap[name] || fileMap[name] || s;
 };

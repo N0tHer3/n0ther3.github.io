@@ -69,7 +69,13 @@ const renderMarkdown = (md) => {
     return escapeHtml(tmp)
       .replace(/`([^`]+)`/g, '<code>$1</code>')
       .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-      .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, t, u) => `<a href="${escapeHtml(safeUrl(u))}"${external(u)}>${t}</a>`)
+      .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, t, u) => {
+        // 相对路径的压缩包链接 → 附件下载（asset 解析真实地址）
+        if (/\.(zip|rar|7z|tar|gz)$/i.test(u) && !/^(https?:)?\/\//i.test(u) && !u.startsWith('/')) {
+          return `<a class="md-file" href="${escapeHtml(asset(u))}" download="${escapeHtml(u.split('/').pop())}" title="点击下载附件">${t}</a>`;
+        }
+        return `<a href="${escapeHtml(safeUrl(u))}"${external(u)}>${t}</a>`;
+      })
       .replace(/\u0000(\d+)\u0000/g, (_, i) => imgs[Number(i)] || '');
   };
 
