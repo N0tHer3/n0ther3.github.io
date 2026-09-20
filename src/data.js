@@ -171,6 +171,12 @@ const articleList = Object.entries(mdFiles)
 
 site.articles = articleList;
 
+// Hero 统计条数字自动同步文章 / 项目数量，无需手动维护
+for (const s of site.stats) {
+  if (s.label === '原创文章') s.value = String(site.articles.length);
+  if (s.label === '开源项目') s.value = String(site.projects.length);
+}
+
 /* ============================================================
    文章资源解析：图片放 src/articles/images/，附件（压缩包）放
    src/articles/files/，md 里写 ./images/xxx.png 或 ./files/xxx.zip
