@@ -99,6 +99,15 @@ export const site = {
       detail: 'Hash 路由、构建期 RSS/Sitemap、内嵌仿真终端——把静态博客写出终端的味道。',
       url: 'https://github.com/N0tHer3/n0ther3.github.io',
       icon: 'terminal'
+    },
+    {
+      name: 'N0tHer3-vuln',
+      year: '2026',
+      tags: ['PHP', 'MySQL', 'Docker'],
+      description: '自建的综合性 Web 安全演练靶场：模拟企业 OA 协同办公系统，内置信息泄露、SSRF、越权、文件上传等多类常见漏洞场景，配套博客复现文章。',
+      detail: 'Docker 一键启动，黑盒打通后可直接阅读 PHP 源码做白盒对照——仅供授权安全学习使用。',
+      url: 'https://github.com/N0tHer3/N0tHer3-vuln',
+      icon: 'shield'
     }
   ],
 
